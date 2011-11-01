@@ -12,7 +12,7 @@ describe Alternator::Action do
 
   describe '#arguments' do
     it 'return the arguments' do
-      action.arguments.must_equal arguments
+      action.arguments.should == arguments
     end
   end
 end
