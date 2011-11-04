@@ -8,7 +8,8 @@ Feature: Create a wrapper
     Given my home directory is the current working directory
     And a directory named "bin"
     When I run `alternator wrap ruby ruby19`
-    Then the file "bin/ruby" must be executable
+    Then the exit status should be 0
+    And the file "bin/ruby" must be executable
     And the file "bin/ruby" must contain exactly:
       """
       #!/usr/bin/env sh
@@ -16,4 +17,3 @@ Feature: Create a wrapper
       exec ruby19 $@
 
       """
-    And the exit status should be 0
