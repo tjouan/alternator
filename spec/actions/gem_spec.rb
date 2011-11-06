@@ -1,14 +1,11 @@
 require 'spec_helper'
-require 'support/home_directory_helpers'
 
 describe Alternator::Actions::Gem do
   include HomeDirectoryHelpers
 
-  let(:action)  { Alternator::Actions::Gem.new ['1.9'] }
+  it_behaves_like 'an action'
 
-  it 'is an action' do
-    action.should be_kind_of Alternator::Action
-  end
+  let(:action) { Alternator::Actions::Gem.new ['1.9'] }
 
   describe '#rubygems_executable_directory' do
     it 'returns the rubygems executable directory' do

@@ -1,15 +1,12 @@
 require 'spec_helper'
-require 'support/home_directory_helpers'
 
 describe Alternator::Actions::Wrap do
   include HomeDirectoryHelpers
 
+  it_behaves_like 'an action'
+
   let(:arguments) { ['ruby', 'ruby19'] }
   let(:action)    { Alternator::Actions::Wrap.new arguments }
-
-  it 'is an action' do
-    action.should be_kind_of Alternator::Action
-  end
 
   describe '#filename' do
     it 'returns the first argument' do
